@@ -33,6 +33,7 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'find / | grep build.sh'
+                sh 'ls -lah'
                 sh './docker/linux/build.sh'
             }
         }
