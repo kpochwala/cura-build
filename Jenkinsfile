@@ -31,7 +31,7 @@ pipeline {
 
         stage ('Run build') {
             steps {
-                sh 'sudo ./docker/linux/build.sh'
+                sh './docker/linux/build.sh'
             }
         }
 
@@ -39,10 +39,10 @@ pipeline {
             steps {
                 withCredentials([file(credentialsId: 'private_gpg', variable: 'GPG_PRIVATE_KEY')]) {
     
-                    sh 'sudo gpg --batch --import $GPG_PRIVATE_KEY'
-                    sh 'sudo gpg --detach-sig --armor ./output/appimages/Ultimaker_Cura-*.AppImage'
-                    sh 'sudo gpg --export -a --output ./output/appimages/public_key.asc'
-                    sh 'sudo ./signing/sha1sum_gen.sh'
+                    sh 'gpg --batch --import $GPG_PRIVATE_KEY'
+                    sh 'gpg --detach-sig --armor ./output/appimages/Ultimaker_Cura-*.AppImage'
+                    sh 'gpg --export -a --output ./output/appimages/public_key.asc'
+                    sh './signing/sha1sum_gen.sh'
                 }
             }
         }
