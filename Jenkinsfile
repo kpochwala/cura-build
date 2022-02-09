@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent { 
+      docker { image 'docker:20.10.12-dind' }
+    } 
 
     environment{
         old_files = fileExists './output'
