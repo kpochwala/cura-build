@@ -1,7 +1,8 @@
 pipeline {
     agent { 
-        dockerfile true
-        args '--privileged'
+        dockerfile {
+            args '--privileged'
+        }
     }
 
     environment{
