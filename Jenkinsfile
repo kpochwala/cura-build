@@ -31,8 +31,8 @@ pipeline {
 
         stage ('Run build') {
             steps {
-                sh -c 'pwd'
-                sh -c 'find / | grep build.sh'
+                sh 'pwd'
+                sh 'find / | grep build.sh'
                 sh './docker/linux/build.sh'
             }
         }
