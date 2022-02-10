@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         dockerfile {
-            args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
 
@@ -36,6 +36,8 @@ pipeline {
                 sh 'pwd'
                 sh 'find / | grep build.sh'
                 sh 'ls -lah'
+                sh 'whoami'
+                sh 'groups'
                 sh './docker/linux/build.sh'
             }
         }
