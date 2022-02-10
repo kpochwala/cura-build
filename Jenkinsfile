@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         dockerfile {
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
+            args '--priviledged -v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
 
