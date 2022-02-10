@@ -36,6 +36,7 @@ pipeline {
                 sh 'pwd'
                 sh 'find / | grep build.sh'
                 sh 'ls -lah'
+                sh 'ls -lah /etc/passwd'
                 sh 'whoami'
                 sh 'groups'
                 sh './docker/linux/build.sh'
